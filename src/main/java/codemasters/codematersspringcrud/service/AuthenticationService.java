@@ -1,9 +1,12 @@
-package codemasters.codematersspringcrud.auth;
+package codemasters.codematersspringcrud.service;
 
-import codemasters.codematersspringcrud.config.JwtService;
-import codemasters.codematersspringcrud.user.Role;
-import codemasters.codematersspringcrud.user.User;
-import codemasters.codematersspringcrud.user.UserRepository;
+import codemasters.codematersspringcrud.jwt.auth.AuthenticationRequest;
+import codemasters.codematersspringcrud.jwt.auth.AuthenticationResponse;
+import codemasters.codematersspringcrud.jwt.auth.RegisterRequest;
+import codemasters.codematersspringcrud.jwt.config.JwtService;
+import codemasters.codematersspringcrud.role.Role;
+import codemasters.codematersspringcrud.entity.User;
+import codemasters.codematersspringcrud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

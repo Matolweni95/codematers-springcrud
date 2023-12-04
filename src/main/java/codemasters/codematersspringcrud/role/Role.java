@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud.user;
+package codemasters.codematersspringcrud.role;
 
 public enum Role {
     USER,

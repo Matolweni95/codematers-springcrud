@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud.auth;
+package codemasters.codematersspringcrud.jwt.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud.config;
+package codemasters.codematersspringcrud.jwt.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

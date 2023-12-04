@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud.config;
+package codemasters.codematersspringcrud.jwt.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

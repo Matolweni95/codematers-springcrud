@@ -1,5 +1,6 @@
-package codemasters.codematersspringcrud.user;
+package codemasters.codematersspringcrud.entity;
 
+import codemasters.codematersspringcrud.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud;
+package codemasters.codematersspringcrud.cors;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

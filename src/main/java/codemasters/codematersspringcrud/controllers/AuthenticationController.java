@@ -1,5 +1,9 @@
-package codemasters.codematersspringcrud.auth;
+package codemasters.codematersspringcrud.controllers;
 
+import codemasters.codematersspringcrud.jwt.auth.AuthenticationRequest;
+import codemasters.codematersspringcrud.jwt.auth.AuthenticationResponse;
+import codemasters.codematersspringcrud.service.AuthenticationService;
+import codemasters.codematersspringcrud.jwt.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
