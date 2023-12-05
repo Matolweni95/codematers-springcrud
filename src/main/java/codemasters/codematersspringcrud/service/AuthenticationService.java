@@ -1,5 +1,6 @@
 package codemasters.codematersspringcrud.service;
 
+import codemasters.codematersspringcrud.UserDetailsDTO;
 import codemasters.codematersspringcrud.jwt.auth.AuthenticationRequest;
 import codemasters.codematersspringcrud.jwt.auth.AuthenticationResponse;
 import codemasters.codematersspringcrud.jwt.auth.RegisterRequest;
@@ -27,10 +28,11 @@ public class AuthenticationService {
                 .lastname(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(request.getRole())
                 .build();
         repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
+        var userDetailsDTO = convertUserToUserDetailsDTO(user);
+        var jwtToken = jwtService.generateToken(userDetailsDTO);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
@@ -44,9 +46,18 @@ public class AuthenticationService {
                 )
         );
         var user = repository.findByEmail(request.getEmail()).orElseThrow();
-        var jwtToken = jwtService.generateToken(user);
+        var userDetailsDTO = convertUserToUserDetailsDTO(user);
+        var jwtToken = jwtService.generateToken(userDetailsDTO);
         return AuthenticationResponse.builder()
                 .token(jwtToken).
                 build();
+    }
+
+    private UserDetailsDTO convertUserToUserDetailsDTO(User user) {
+        UserDetailsDTO userDetailsDTO = new UserDetailsDTO();
+        userDetailsDTO.setId(user.getId());
+        userDetailsDTO.setFirstname(user.getFirstname());
+        userDetailsDTO.setRole(user.getRole());
+        return userDetailsDTO;
     }
 }
