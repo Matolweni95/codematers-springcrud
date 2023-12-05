@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static codemasters.codematersspringcrud.role.Role.ADMIN;
+import static codemasters.codematersspringcrud.role.Role.USER;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
@@ -29,18 +31,13 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers("/api/v1/auth/**")
-
-                                .authenticated()
+                                .requestMatchers("/api/v1/auth/**").authenticated()  // Require authentication for these paths
+                                .requestMatchers("/admin/**").hasRole(ADMIN.name())  // Require role ADMIN for these paths
+                                .requestMatchers("/contentcreator/**").hasRole(USER.name())  // Require role CONTENT_CREATOR for these paths
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-//                .logout(logout ->
-//                        logout.logoutUrl("/api/v1/auth/logout")
-//                                .addLogoutHandler(logoutHandler)
-//                                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
-//                )
         ;
 
         return http.build();
