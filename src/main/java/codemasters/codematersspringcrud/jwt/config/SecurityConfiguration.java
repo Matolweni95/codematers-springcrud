@@ -33,7 +33,8 @@ public class SecurityConfiguration {
                                 .permitAll()
                                 .requestMatchers("/api/v1/auth/**").authenticated()  // Require authentication for these paths
                                 .requestMatchers("/admin/**").hasRole(ADMIN.name())  // Require role ADMIN for these paths
-                                .requestMatchers("/contentcreator/**").hasRole(USER.name())  // Require role CONTENT_CREATOR for these paths
+                                .requestMatchers("/contentcreator/**").hasRole(USER.name())
+                                .requestMatchers("/api/v1/users/**").hasRole(ADMIN.name())// Require role CONTENT_CREATOR for these paths
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)

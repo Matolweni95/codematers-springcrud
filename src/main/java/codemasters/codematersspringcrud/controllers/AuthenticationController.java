@@ -31,4 +31,5 @@ public class AuthenticationController {
         AuthenticationResponse authenticationResponse = service.authenticate(request, response);
         return ResponseEntity.ok(authenticationResponse);
     }
+
 }
