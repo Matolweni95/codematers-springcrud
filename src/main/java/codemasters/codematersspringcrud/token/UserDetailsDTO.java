@@ -12,6 +12,7 @@ public class UserDetailsDTO implements UserDetails {
     private Integer id;
     private String firstname;
     private Role role;
+    private String lastname;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
