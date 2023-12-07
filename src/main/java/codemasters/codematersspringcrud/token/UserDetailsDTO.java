@@ -1,4 +1,4 @@
-package codemasters.codematersspringcrud;
+package codemasters.codematersspringcrud.token;
 
 import codemasters.codematersspringcrud.role.Role;
 import lombok.Data;

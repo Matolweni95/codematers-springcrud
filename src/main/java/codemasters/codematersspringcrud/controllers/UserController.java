@@ -4,10 +4,7 @@ import codemasters.codematersspringcrud.entity.User;
 import codemasters.codematersspringcrud.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,11 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = service.getAllUsers();
         return ResponseEntity.ok(users);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
+        service.deleteUserById(id);
+        return ResponseEntity.noContent().build();
     }
 }

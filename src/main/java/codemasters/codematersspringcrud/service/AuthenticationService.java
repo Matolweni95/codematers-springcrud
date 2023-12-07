@@ -1,6 +1,6 @@
 package codemasters.codematersspringcrud.service;
 
-import codemasters.codematersspringcrud.UserDetailsDTO;
+import codemasters.codematersspringcrud.token.UserDetailsDTO;
 import codemasters.codematersspringcrud.jwt.auth.AuthenticationRequest;
 import codemasters.codematersspringcrud.jwt.auth.AuthenticationResponse;
 import codemasters.codematersspringcrud.jwt.auth.RegisterRequest;
@@ -69,6 +69,7 @@ public class AuthenticationService {
         userDetailsDTO.setId(user.getId());
         userDetailsDTO.setFirstname(user.getFirstname());
         userDetailsDTO.setRole(user.getRole());
+        userDetailsDTO.setLastname(user.getLastname());
         return userDetailsDTO;
     }
 }

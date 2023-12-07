@@ -13,3 +13,17 @@ spring:
                 format_sql: true
             database: postgresql
             database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    mail:
+        host: smtp.gmail.com
+        port: 465
+        username: codemasters2023@gmail.com
+        password: dyxx llmv iwpj ncpn
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    ssl:
+                        enable: true
+
+

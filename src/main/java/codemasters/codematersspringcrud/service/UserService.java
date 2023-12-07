@@ -15,4 +15,8 @@ public class UserService {
     public List<User> getAllUsers() {
         return repository.findAll();
     }
+
+    public void deleteUserById(Integer id) {
+        repository.deleteById(id);
+    }
 }

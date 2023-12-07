@@ -1,6 +1,6 @@
 package codemasters.codematersspringcrud.jwt.config;
 
-import codemasters.codematersspringcrud.UserDetailsDTO;
+import codemasters.codematersspringcrud.token.UserDetailsDTO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -32,8 +32,11 @@ public class JwtService {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", userDetails.getId());
         claims.put("firstname", userDetails.getFirstname());
-
+        claims.put("lastname", userDetails.getLastname());
         claims.put("role", userDetails.getRole());
+
+
+
 
         return Jwts.builder()
                 .setClaims(claims)
