@@ -3,7 +3,6 @@ package codemasters.codematersspringcrud.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Builder;
-
 import java.time.Instant;
 
 @Entity
