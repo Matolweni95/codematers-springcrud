@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@Table (name = "users")
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -31,6 +31,13 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private Contact contact;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Gallery> gallery;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
