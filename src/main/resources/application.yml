@@ -1,3 +1,6 @@
+jwt:
+    secret-key: 5e6e392d148e1f883cd4b3eba2b2f9566ba843b5f5265e39b1a736195dc7a233
+
 spring:
     datasource:
         url: jdbc:postgresql://localhost:5432/jwt_security

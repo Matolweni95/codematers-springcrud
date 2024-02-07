@@ -1,5 +1,6 @@
 package codemasters.codematersspringcrud.jwt.config;
 
+import codemasters.codematersspringcrud.role.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,9 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import static codemasters.codematersspringcrud.role.Role.ADMIN;
-import static codemasters.codematersspringcrud.role.Role.USER;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
@@ -31,10 +29,10 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers("/api/v1/auth/**").authenticated()  // Require authentication for these paths
-                                .requestMatchers("/admin/**").hasRole(ADMIN.name())  // Require role ADMIN for these paths
-                                .requestMatchers("/contentcreator/**").hasRole(USER.name())
-                                .requestMatchers("/api/v1/users/**").hasRole(ADMIN.name())// Require role CONTENT_CREATOR for these paths
+//                                .requestMatchers("/api/v1/auth/**").authenticated()  // Require authentication for these paths
+                                    .requestMatchers("/admin/**").hasRole("ADMIN")  // Require role ADMIN for these paths
+                                    .requestMatchers("/contentcreator/**").hasRole("CONTENT_CREATOR")
+//                                .requestMatchers("/api/v1/users/**").hasRole(ADMIN.name())// Require role CONTENT_CREATOR for these paths
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)

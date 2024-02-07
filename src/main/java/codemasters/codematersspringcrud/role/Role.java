@@ -1,7 +1,6 @@
 package codemasters.codematersspringcrud.role;
 
 public enum Role {
-    USER,
-    ADMIN,
-    CONTENT_CREATOR,
+    ROLE_ADMIN,
+    ROLE_CONTENT_CREATOR,
 }

@@ -23,7 +23,6 @@ public class EmailController {
     public ResponseEntity<String> sendLoginDetails(@RequestBody Map<String, String> userDetails) {
         String email = userDetails.get("email");
         String password = userDetails.get("password");
-
         service.sendEmail(email, "Login Details", "Your email: " + email + "\nYour password: " + password);
         return ResponseEntity.ok("Login details sent successfully");
     }
